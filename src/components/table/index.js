@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap'
 function TablePic() {
 
   return (
-    <Card>
+    <Card style={{marginTop: '2%'}}>
       <PicTable>
         <thead>
           Dois heads na tabel

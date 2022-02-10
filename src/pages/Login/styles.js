@@ -49,8 +49,6 @@ export const TextField = styled(Form.Control)`
   }
 `
 
-
-
 export const Templates = styled.div`
   width: 100%;
   height: 90px;

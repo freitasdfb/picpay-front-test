@@ -22,4 +22,5 @@ export default createGlobalStyle`
   table { 
     font-family: 'Lato', sans-serif;
   }
+
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const PicTable = styled.table`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
   td { 
     padding: 10px;
   }
