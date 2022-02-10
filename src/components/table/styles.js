@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { Form } from 'react-bootstrap';
 
 export const PicTable = styled.table`
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+  * {
+    font-family: 'Lato', sans-serif; 
+  }
+
   td { 
     padding: 10px;
   }
@@ -34,4 +38,5 @@ export const TextField = styled(Form.Control)`
   &:focus { 
     background: none;
   }
+
 `

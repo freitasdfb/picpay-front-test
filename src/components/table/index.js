@@ -7,10 +7,17 @@ function TablePic() {
   return (
     <Card style={{ marginTop: '2%' }}>
       <PicTable>
-        <thead style={{ padding: '0px 2%'}}>
-          <th>
-            <TextField placeholder="Pesquisar por usuário" />
-          </th>
+        <thead>
+          <tr>
+            <th style={{ width: '20%'}}>
+              <TextField placeholder="Pesquisar por usuário" />
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Outas coisas</th>
+          </tr>
         </thead>
         <thead id="mainHead">
           <tr>

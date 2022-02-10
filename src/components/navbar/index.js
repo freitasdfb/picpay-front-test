@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <WrapperNavbar>
       <div>
-        <img src={logo} alt='pay friends logo' />
+        <img style={{cursor: 'pointer'}} src={logo} alt='pay friends logo' href="/"/>
       </div>
       <div>
         <img src={avatar} alt='pay friends logo' />
