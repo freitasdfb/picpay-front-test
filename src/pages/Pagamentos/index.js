@@ -15,7 +15,7 @@ function Pagamentos() {
     "title": 'Professor',
     "date": '22/01/2020',
     "value": 100,
-    "paid": false
+    "paid": true
   }]);
 
   function handleAddUserObj(user) {

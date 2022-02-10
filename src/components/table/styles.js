@@ -9,6 +9,7 @@ export const PicTable = styled.table`
 
   td { 
     padding: 10px;
+    text-align: center;
   }
 
   #mainHead th {
@@ -23,6 +24,7 @@ export const PicTable = styled.table`
     line-height: 17px;
     text-align: left;
     padding: 10px 30px;
+    text-align: center
   }
 
   tbody>tr:nth-child(odd)>td, 
