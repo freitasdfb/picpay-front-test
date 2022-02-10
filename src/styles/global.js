@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
   * {
     margin: 0;
@@ -16,5 +17,9 @@ export default createGlobalStyle`
   }
   button {
     cursor: pointer;
+  }
+
+  table { 
+    font-family: 'Lato', sans-serif;
   }
 `;
