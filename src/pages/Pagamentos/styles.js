@@ -25,4 +25,5 @@ export const PicButton = styled(Button)`
   font-size: 14px;
   line-height: 16px;
   height: 36px;
+  letter-spacing: 1.25px;
 `

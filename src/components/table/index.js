@@ -2,14 +2,14 @@ import React from 'react';
 import { PicTable, TextField } from './styles'
 import { Card } from 'react-bootstrap'
 
-function TablePic() {
+function TablePic(props) {
 
   return (
     <Card style={{ marginTop: '2%' }}>
       <PicTable>
         <thead>
           <tr>
-            <th style={{ width: '20%'}}>
+            <th style={{ width: '20%' }}>
               <TextField placeholder="Pesquisar por usuário" />
             </th>
             <th></th>
@@ -30,29 +30,21 @@ function TablePic() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
-            <td></td>
-            <td></td>
-          </tr>
+          {
+            props.userObj.map(user => (
+              <tr>
+                <td>
+                  {user.name}
+                  {user.nickname}
+                </td>
+                <td>{user.title}</td>
+                <td>{user.date}</td>
+                <td>{user.value}</td>
+                <td>{user.paid}</td>
+                <td></td>
+              </tr>
+            ))
+          }
         </tbody>
       </PicTable>
     </Card>
