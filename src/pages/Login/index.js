@@ -7,10 +7,19 @@ import {
 import logo from '../../images/payfriendslogo.svg'
 import homeImage from '../../images/homeImage.svg'
 import { Form, Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 const formSize = '70%'
 
 function Home() {
+
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path = `pagamentos`;
+        navigate(path);
+    }
+
+
     return (
         <Wrapper>
             <WrapperForm>
@@ -29,7 +38,7 @@ function Home() {
                             <Form.Label>Senha</Form.Label>
                             <TextField type="password" placeholder="Senha" />
                         </Form.Group>
-                        <Button style={{ width: '100%' }} variant="primary" type="submit">
+                        <Button style={{ width: '100%' }} variant="primary" onClick={routeChange}>
                             Submit
                         </Button>
                     </Form>
