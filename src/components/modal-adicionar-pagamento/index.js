@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
+import { AddModal, TextField, PicButton } from './styles';
 
 
 function ModalAddPag(props) {
@@ -8,25 +9,49 @@ function ModalAddPag(props) {
 
   useEffect(() => {
     setCloseModal(props.show)
-  },[props.show])
+  }, [props.show])
 
   return (
 
-    // <Modal show={props.show} onHide={props.handleClose}>
-    <Modal show={closeModal} centered >
+    <AddModal show={closeModal} centered size="lg">
       <Modal.Header>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>Adicionar pagamento</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+
+      <Modal.Body>
+        <div>
+          <Container>
+            <Row>
+              <Col>
+                <TextField placeholder="Usuário" required />
+              </Col>
+              <Col>
+                <TextField placeholder="Valor" required />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <TextField placeholder="Data" required />
+              </Col>
+              <Col>
+                <TextField placeholder="Título" required />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+      </Modal.Body>
+
+
       <Modal.Footer>
-        <Button variant="secondary" onClick={() => { setCloseModal(false); props.handleClose()}}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={() => {setCloseModal(false); props.handleClose()}}>
-          Save Changes
-        </Button>
+        <PicButton className="cancel" onClick={() => { setCloseModal(false); props.handleClose() }}>
+          Cancelar
+        </PicButton>
+        <PicButton variant="primary" onClick={() => { setCloseModal(false); props.handleClose() }}>
+          Salvar
+        </PicButton>
       </Modal.Footer>
-    </Modal>
+    </AddModal>
 
   )
 }
