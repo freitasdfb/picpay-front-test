@@ -32,7 +32,7 @@ function TablePic(props) {
         <tbody>
           {
             props.userObj.map(user => (
-              <tr>
+              <tr key={user.id}>
                 <td>
                   <div>
                     {user.name}
@@ -45,7 +45,7 @@ function TablePic(props) {
                 <td>{user.date}</td>
                 <td>{user.value}</td>
                 <td>
-                  <input style={{ height: '18px', width: '100%'}} type="checkbox" checked={user.paid} readable />
+                  <input style={{ height: '18px', width: '100%'}} type="checkbox" checked={user.paid} onChange={e => {}} />
                 </td>
                 <td></td>
               </tr>
