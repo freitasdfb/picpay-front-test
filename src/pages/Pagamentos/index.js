@@ -22,7 +22,7 @@ function Pagamentos() {
   const [modalOpen, setModalOpen] = useState(false);
 
   function handleAddUserObj(user) {
-    setUserObj({ ...userObj, user })
+    setUserObj(oldArray => [ ...oldArray, user ])
   }
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function Pagamentos() {
 
   return (
     <>
-      <ModalAddPag show={modalOpen} handleClose={() => setModalOpen(false)}/>
+      <ModalAddPag show={modalOpen} handleClose={() => setModalOpen(false)} handleNewUser={(user) => handleAddUserObj(user)}/>
       <ContainerPag>
         <Navbar />
         <WrapperContent>
