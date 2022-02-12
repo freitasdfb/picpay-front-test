@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/navbar'
 import { ContainerPag, WrapperContent, PicButton } from './styles'
 import TablePic from '../../components/table'
 import ModalAddPag from '../../components/modal-adicionar-pagamento'
-import { useState, useEffect } from 'react';
 
 function Pagamentos() {
 
@@ -17,28 +16,23 @@ function Pagamentos() {
     "paid": true
   }]);
 
-  const [modalOpen, setModalOpen] = useState(false);
-
+  const [modalAddOpen, setModalAddOpen] = useState(false);
+  
   function handleAddUserObj(user) {
     setUserObj(oldArray => [ ...oldArray, user ])
   }
 
-  useEffect(() => {
-    console.log('modalOpen', modalOpen)
-  }, [modalOpen])
-  
-
   return (
     <>
-      <ModalAddPag show={modalOpen} handleClose={() => setModalOpen(false)} handleNewUser={(user) => handleAddUserObj(user)}/>
+      <ModalAddPag show={modalAddOpen} handleClose={() => setModalAddOpen(false)} handleNewUser={(user) => handleAddUserObj(user)}/>
       <ContainerPag>
         <Navbar />
         <WrapperContent>
           <h2>Meus pagamentos</h2>
           <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
-            <PicButton onClick={() => setModalOpen(true)} variant="primary">Adicionar Pagamento</PicButton>
+            <PicButton onClick={() => setModalAddOpen(true)} variant="primary">Adicionar Pagamento</PicButton>
           </div>
-          <TablePic userObj={userObj} />
+          <TablePic userObj={userObj}/>
         </ WrapperContent>
       </ ContainerPag>
     </>
