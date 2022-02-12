@@ -5,8 +5,6 @@ import TablePic from '../../components/table'
 import ModalAddPag from '../../components/modal-adicionar-pagamento'
 import { useState, useEffect } from 'react';
 
-
-
 function Pagamentos() {
 
   const [userObj, setUserObj] = useState([{

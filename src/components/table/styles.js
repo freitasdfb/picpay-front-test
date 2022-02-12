@@ -24,7 +24,14 @@ export const PicTable = styled.table`
     line-height: 17px;
     text-align: left;
     padding: 10px 30px;
-    text-align: center
+    text-align: center;
+
+   .icon {
+    margin: 0px 6%;
+    font-size: 22px;
+    cursor: pointer;
+   }
+
   }
 
   tbody>tr:nth-child(odd)>td, 

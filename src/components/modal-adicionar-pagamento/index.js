@@ -8,7 +8,7 @@ function ModalAddPag(props) {
   const [closeModal, setCloseModal] = useState(props.show);
   const [newUserObj, setNewUserObj] = useState({
     // "id": '',
-    "name": '',
+    "name": null,
     "nickname": '',
     "title": '',
     "date": '',
