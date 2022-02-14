@@ -14,6 +14,9 @@ Rode o comando
 
 para iniciar o projeto.
 
+Para login na interface, só é necessário informar 
+`admin` no campo de email e senha
+
 A aplicação estará disponível em  [http://localhost:3000](http://localhost:3000) 
 
 ## Bibliotecas utilizadas
