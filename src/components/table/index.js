@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PicTable, TextField } from './styles'
 import { Card } from 'react-bootstrap'
 import { HiOutlinePencil } from "react-icons/hi";
@@ -9,17 +9,24 @@ function TablePic(props) {
 
   const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState({});
+  const [users, setUsers] = useState(props.userObj)
+
+  useEffect(() => {
+    setUsers(props.userObj);
+  }, [props.userObj])
 
 
   function handleIsChecked(_checked, user) {
-    console.log('Executei', _checked)
-    const objIndex = props.userObj.findIndex((obj => obj.id === user.id))
-    props.userObj[objIndex].paid = _checked
-    // console.log(props.userObj[objIndex])
+    let _users = [...users]
+    const objIndex = _users.findIndex((obj => obj.id === user.id))
+    let _user = _users[objIndex]
+    _user.paid = _checked;
+    _users[objIndex] = _user;
+    setUsers(_users);
   }
 
-  function getUserPaid(user) {
-    return user.paid
+  function getUserPaid(userPaid) {
+    return userPaid.paid;
   }
 
   function handleClickDelete(user) {
@@ -28,14 +35,17 @@ function TablePic(props) {
   }
 
 
-  function handleDelete() {
-    console.log('Deleeeeeeeeeeta')
+  function handleDelete(user) {
     setModalDeleteOpen(false);
+    let _users = [...users]
+    const objIndex = _users.findIndex((obj => obj.id === user.id))
+    _users.splice(objIndex, 1);
+    setUsers(_users);
   }
 
   return (
     <>
-      <ModalDeletePag user={selectedUser} show={modalDeleteOpen} handleClose={() => setModalDeleteOpen(false)} delete={() => handleDelete()} />
+      <ModalDeletePag user={selectedUser} show={modalDeleteOpen} handleClose={() => setModalDeleteOpen(false)} delete={() => handleDelete(selectedUser)} />
       <Card style={{ marginTop: '2%' }}>
         <PicTable>
           <thead>
@@ -62,7 +72,7 @@ function TablePic(props) {
           </thead>
           <tbody>
             {
-              props.userObj.map(user => {
+              users.map(user => {
                 return (
                   <tr key={user.id}>
                     <td>
@@ -77,11 +87,11 @@ function TablePic(props) {
                     <td>{user.date}</td>
                     <td>{user.value}</td>
                     <td>
-                      <input style={{ height: '18px', width: '100%', cursor: 'pointer' }} type="checkbox" checked={getUserPaid(user.paid)} onChange={e => { handleIsChecked(e.target.checked, user) }} />
+                      <input style={{ height: '18px', width: '100%', cursor: 'pointer' }} type="checkbox" checked={getUserPaid(user)} onChange={e => { handleIsChecked(e.target.checked, user) }} />
                     </td>
                     <th>
                       <HiOutlinePencil className="icon" />
-                      <GiCancel onClick={ () => handleClickDelete(user)} className="icon" />
+                      <GiCancel onClick={() => handleClickDelete(user)} className="icon" />
                     </th>
                   </tr>
                 )

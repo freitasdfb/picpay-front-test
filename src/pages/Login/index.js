@@ -7,7 +7,6 @@ import {
 import logo from '../../images/payfriendslogo.svg'
 import homeImage from '../../images/homeImage.svg'
 import { Form, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/AuthContext'
 
 const formSize = '70%'

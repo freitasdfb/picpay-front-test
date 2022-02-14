@@ -15,10 +15,6 @@ function App() {
     return authenticated ? children : <Navigate to='/' />
   }
 
-  function useAuth() {
-    return false;
-  }
-
   return (
     <>
       <GlobalStyles />
