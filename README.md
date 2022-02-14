@@ -10,7 +10,7 @@ No diretório do projeto, após instalar suas dependências com
 
 Rode o comando 
 
-### `yarn start`
+`yarn start`
 
 para iniciar o projeto.
 
