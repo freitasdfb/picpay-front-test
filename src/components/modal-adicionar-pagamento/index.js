@@ -5,20 +5,22 @@ import { AddModal, TextField, PicButton } from './styles';
 
 function ModalAddPag(props) {
 
-  const [closeModal, setCloseModal] = useState(props.show);
-  const [newUserObj, setNewUserObj] = useState({
-    // "id": '',
+  const initialValue = {
+    "id": Math.floor(Math.random() * 999),
     "name": null,
     "nickname": '',
     "title": '',
     "date": '',
     "value": '',
     "paid": false
-  });
+  };
+  const [closeModal, setCloseModal] = useState(props.show);
+  const [newUserObj, setNewUserObj] = useState(initialValue);
   const [user, setUser] = useState(props.user);
 
   useEffect(() => {
     setCloseModal(props.show)
+    setNewUserObj(initialValue);
   }, [props.show])
 
   useEffect(() => {
