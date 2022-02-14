@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
+import { Modal, Container, Row, Col } from 'react-bootstrap';
 import { AddModal, TextField, PicButton } from './styles';
 
 
@@ -24,6 +24,13 @@ function ModalAddPag(props) {
   //   setNewUserObj({...newUserObj, id: (Math.random() * 10)})
   // }, [])
 
+  function handleSubmitForm(e) {
+    e.preventDefault();
+    setCloseModal(false);
+    props.handleNewUser(newUserObj);
+    props.handleClose()
+  }
+
   return (
 
     <AddModal show={closeModal} centered size="lg">
@@ -31,42 +38,42 @@ function ModalAddPag(props) {
         <Modal.Title>Adicionar pagamento</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
-        <div>
-          <Container>
-            <form>
+      <form onSubmit={(e) => { handleSubmitForm(e) }}>
+        <Modal.Body>
+          <div>
+            <Container>
               <Row>
                 <Col>
-                  <TextField value={newUserObj.name} placeholder="Usuário" required onChange={(e) => setNewUserObj({...newUserObj, name: e.target.value})}/>
+                  <TextField value={newUserObj.name} placeholder="Usuário" required={true} onChange={(e) => setNewUserObj({ ...newUserObj, name: e.target.value })} />
                 </Col>
                 <Col>
-                  <TextField type="number" value={newUserObj.value} placeholder="Valor" required onChange={(e) => setNewUserObj({...newUserObj, value: e.target.value})}/>
+                  <TextField type="number" value={newUserObj.value} placeholder="Valor" required onChange={(e) => setNewUserObj({ ...newUserObj, value: e.target.value })} />
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <TextField value={newUserObj.date} placeholder="Data" required onChange={(e) => setNewUserObj({...newUserObj, date: e.target.value})}/>
+                  <TextField value={newUserObj.date} placeholder="Data" required onChange={(e) => setNewUserObj({ ...newUserObj, date: e.target.value })} />
                 </Col>
                 <Col>
-                  <TextField value={newUserObj.title} placeholder="Título" required onChange={(e) => setNewUserObj({...newUserObj, title: e.target.value})}/>
+                  <TextField value={newUserObj.title} placeholder="Título" required onChange={(e) => setNewUserObj({ ...newUserObj, title: e.target.value })} />
                 </Col>
               </Row>
-            </form>
-          </Container>
-        </div>
+            </Container>
+          </div>
 
-      </Modal.Body>
+        </Modal.Body>
 
 
-      <Modal.Footer>
-        <PicButton className="cancel" onClick={() => { setCloseModal(false); props.handleClose() }}>
-          Cancelar
-        </PicButton>
-        <PicButton variant="primary" onClick={() => { setCloseModal(false); props.handleNewUser(newUserObj); props.handleClose() }}>
-          Salvar
-        </PicButton>
-      </Modal.Footer>
-    </AddModal>
+        <Modal.Footer>
+          <PicButton className="cancel" onClick={() => { setCloseModal(false); props.handleClose() }}>
+            Cancelar
+          </PicButton>
+          <PicButton type="submit" variant="primary">
+            Salvar
+          </PicButton>
+        </Modal.Footer>
+      </form>
+    </AddModal >
 
   )
 }
